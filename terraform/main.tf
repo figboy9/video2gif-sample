@@ -52,7 +52,6 @@ resource "google_storage_bucket" "tf_state" {
   }
 }
 
-
 resource "google_cloudfunctions_function" "video2gif_function" {
   name        = "video2gif-function"
   description = "video2gif Function"
