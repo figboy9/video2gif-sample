@@ -1,13 +1,21 @@
 package function
 
 import (
+	"encoding/json"
 	"io"
+	"log"
 	"net/http"
 )
 
 // var (
 // 	slackToken string
 // )
+
+type slackURLVerify struct {
+	Type      string
+	Token     string
+	Challenge string
+}
 
 // func init() {
 // 	if slackToken = os.Getenv("SLACK_CLIENT_TOKEN"); slackToken == "" {
@@ -16,6 +24,10 @@ import (
 // }
 
 func HelloHTTP(w http.ResponseWriter, r *http.Request) {
-	p := r.URL.Query().Get("challenge")
-	io.WriteString(w, p)
+	var v slackURLVerify
+	if err := json.NewDecoder(r.Body).Decode(&v); err != nil {
+		log.Println("slack url verification format is different")
+	}
+
+	io.WriteString(w, v.Challenge)
 }
