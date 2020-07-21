@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", function.HelloHTTP)
+	http.HandleFunc("/", function.RecieveEvent)
 
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
