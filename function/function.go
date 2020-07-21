@@ -1,4 +1,4 @@
-package video2gif
+package function
 
 import (
 	"encoding/json"

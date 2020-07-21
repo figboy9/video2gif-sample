@@ -63,7 +63,7 @@ resource "google_cloudfunctions_function" "video2gif_function" {
   timeout      = 60
   entry_point  = "HelloHTTP"
   source_repository {
-    url = "https://source.developers.google.com/projects/${var.project}/repos/github_ezio1119_video2gif-sample/revisions/${var.revisions}"
+    url = "https://source.developers.google.com/projects/${var.project}/repos/github_ezio1119_video2gif-sample/revisions/${var.revisions}/paths/function"
   }
 
   ingress_settings = "ALLOW_ALL"
