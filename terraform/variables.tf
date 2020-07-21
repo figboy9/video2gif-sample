@@ -14,5 +14,5 @@ variable "region" {
 variable "revisions" {
   description = "Githubのコミットハッシュ値。そのコードがデプロイされる。"
   type        = string
-  default     = "8e712c5a8a6fd3d311458dea1c5965d09c45be23"
+  default     = "af3ba1153fc70bb8f6d9f76dde0fb067a05c1202"
 }
