@@ -62,7 +62,7 @@ resource "google_cloudfunctions_function" "video2gif_function" {
   trigger_http = true
   timeout      = 60
   entry_point  = "RecieveEvent"
-  
+
   source_repository {
     url = "https://source.developers.google.com/projects/${var.project}/repos/github_ezio1119_video2gif-sample/revisions/${var.revisions}/paths/function"
   }
