@@ -2,12 +2,14 @@ package function
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 
+	"app/models"
+
 	"github.com/davecgh/go-spew/spew"
-	"github.com/ezio1119/video2gif-sample/models"
 )
 
 // var (
@@ -24,16 +26,20 @@ func VerifyURLEvent(w http.ResponseWriter, r *http.Request) {
 	var e models.VerifyURL
 	if err := json.NewDecoder(r.Body).Decode(&e); err != nil {
 		log.Println("unexpected event type, expected url_verification event")
+		return
 	}
 
 	io.WriteString(w, e.Challenge)
 }
 
 func RecieveEvent(w http.ResponseWriter, r *http.Request) {
-	var e models.FileCreated
+	fmt.Println("きたよ")
+	var e models.MessageChannels
 	if err := json.NewDecoder(r.Body).Decode(&e); err != nil {
 		log.Println("unexpected event type, expected file_created event")
+		fmt.Println("やばい")
+		return
 	}
 
-	spew.Dump(e)
+	spew.Dump()
 }

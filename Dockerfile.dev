@@ -2,11 +2,11 @@ FROM golang:1.13-alpine AS hot-reload
 
 WORKDIR /app
 RUN apk add --no-cache git && \
-    go get github.com/pilu/fresh
+    go get github.com/oxequa/realize
 
 COPY . .
 
-CMD ["fresh"]
+CMD ["realize", "start"]
 
 FROM golang:1.13-alpine AS builder
 WORKDIR /src
