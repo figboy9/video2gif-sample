@@ -20,3 +20,7 @@ terra:
 	-v $(GCP_TERRA_KEY):/credentials.json \
 	-e GOOGLE_APPLICATION_CREDENTIALS=/credentials.json \
 	hashicorp/terraform:light
+
+ngork:
+	docker run -it --rm --name ngrok wernight/ngrok \
+	

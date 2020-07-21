@@ -12,3 +12,12 @@ services:
     env_file:
       - .env
     tty: true
+
+  ngork:
+    image: wernight/ngrok
+    tty: true
+    command: ngrok http bot:8080
+    ports:
+      - 4040:4040
+    depends_on:
+    - bot
