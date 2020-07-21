@@ -23,3 +23,13 @@ resource "google_sourcerepo_repository_iam_member" "video2gif_iam" {
   role       = "roles/source.reader"
   member     = "serviceAccount:${google_service_account.video2gif_function_account.email}"
 }
+
+# cloud functionsにアクセスするために必要
+resource "google_cloudfunctions_function_iam_member" "video2gif_invoker" {
+  project        = google_cloudfunctions_function.video2gif_function.project
+  region         = google_cloudfunctions_function.video2gif_function.region
+  cloud_function = google_cloudfunctions_function.video2gif_function.name
+
+  role   = "roles/cloudfunctions.invoker"
+  member = "allUsers"
+}
